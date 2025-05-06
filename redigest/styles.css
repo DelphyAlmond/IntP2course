@@ -1,0 +1,680 @@
+.root{
+    --Cpink: #FF61CD;
+    --Cdark: #1B172F;
+    --Cmain: #332C57;
+    --Cblue: #48DAFF;
+    --Cgreen: #6EFB4E;
+    --Corange: #FF911B;
+    --Cwhite: #FFFFFF;
+
+    --Wdesktop: 84%;
+    --Wmobile: 92%;
+}
+
+/* UNIV */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Trebuchet MS';
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #332C57;
+}
+
+.container {
+    width: var(--Wdesktop);
+}
+
+a {
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--Cwhite);
+}
+
+/* AUTHENTIFICATION : 2-section page (+registration) */
+
+/* Вспомогательные классы для позиционирования */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+.col-span-13 { grid-column: span 13; }
+.col-span-14 { grid-column: span 14; }
+
+.a-body {
+    color: #FFFFFF;
+    overflow: hidden; /* Запрещаем прокрутку */
+    height: 100vh; /* Занимаем всю высоту экрана */
+}
+
+.auth-page {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 0; /* Убираем отступы между колонками, tight connection */
+    padding: 0;
+    height: 100%;
+}
+
+.auth-container {
+    display: flex;
+    height: 100%; /* Занимаем всю высоту контейнера */
+    position: relative; /* For absolute positioning of logo */
+}
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: left 0.3s ease;
+}
+
+.logo-container img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    object-fit: contain;
+}
+
+.section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: flex-grow 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.3s ease; /* Добавлена анимация opacity */
+
+    text-align: center;
+}
+
+.section#login {
+    background-color: #332C57;
+}
+
+.section#register {
+    background-color: #1B172F;
+}
+
+.section:hover {
+    cursor: pointer;
+}
+
+.section h2 {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.section p {
+    text-align: center;
+    margin: 0 0 8px 0;
+}
+
+.section input, .section button {
+    font-family: 'Trebuchet MS';
+    width: auto; /* Автоматическая ширина */
+    max-width: 70%; /* Максимальная ширина */
+    box-sizing: border-box;
+    transition: width 0.3s ease, opacity 0.3s ease; /* Анимация ширины и прозрачности */
+}
+
+.section button {
+    background-color: #48DAFF;
+    color: #1B172F;
+    border: none;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    opacity: 1;
+}
+
+.section button:hover {
+    background-color: #FF61CD;
+    color: #FFFFFF;
+}
+
+.section.inactive input, .section.inactive button, .section.inactive p {
+    font-family: 'Trebuchet MS';
+    opacity: 0; /* Плавное скрытие */
+    width: 0; /* Уменьшаем ширину */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем отступы */
+    overflow: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.section input {
+    font-family: 'Trebuchet MS';
+    margin: 8px 0;
+    padding: 8px;
+    border: 1px solid #FF911B;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1B172F;
+}
+
+.section.inactive {
+    flex: 0.5; /* Меньше места для неактивной секции */
+    /* color: #332C57; - Затемнение - */
+}
+
+/* HOMEPAGE : Navigation structure ----------------------------- */
+
+nav {
+    height: 4rem;
+    background-color: #1B172F;
+    display: flex; /* Use flexbox for internal layout */
+    align-items: center;
+}
+
+nav .container {
+    justify-content: flex-start;
+    display: flex; /* Use flexbox for layout within the container */
+    align-items: center;
+    width: 100%; /* container fill nav width in 100% */
+    height: 100%;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Make ul fill container height */
+}
+
+nav ul li {
+    /* List items might need display block or flex depending on exact layout */
+    display: flex; /* to center content vertically >> */
+    align-items: center;
+    height: 100%;
+    margin: 0 20px 0 20px;
+}
+
+nav ul li .search-input {
+    border: none;
+    color: #48DAFF;
+    background-color: #332C57;
+    height: 100%; /* Make height fill the li height (which fills ul, which fills nav) */
+    width: auto;
+    flex-grow: 1;
+    min-width: 30vw;
+    padding: 0 0 0 20px;
+    box-sizing: border-box; /* Include padding within the element's total height/width   [ ? ] */
+    font-family: 'Trebuchet MS';
+}
+
+nav ul li .search-input::placeholder {
+    color: #48DAFF;
+    font-family: 'Trebuchet MS';
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center; /* Vertically center text within the link */
+    height: 100%; /* Make links fill li height */
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    /* [ ! ] object-fit can help control how the image fits the dimensions
+       cover: The image will be scaled to maintain its aspect ratio while filling the element's entire content box. The object will be clipped to fit.
+       contain: The image will be scaled to maintain its aspect ratio while fitting within the element's content box. The entire object will be visible within its container.
+       If your logo is not square, using 'cover' or 'contain' is generally better than just setting width and height, which can distort it.
+       Let's use 'contain' to ensure the whole logo is visible, centered within the 50x50 space. */
+    object-fit: contain;
+    padding: 0 0 0 20px;
+}
+
+.name img {
+    width: 80px;
+    height: 48px;
+    object-fit: contain;
+    padding: 0 0 0 10px;
+}
+
+/* HOMEPAGE : playlists + recently watched ----------------------------- */
+
+header {
+    color: #FFFFFF;
+    text-align: start;
+    height: 100vh;
+    display: grid; /* for grid layout in header.container [ ! ] */
+    grid-template-columns: repeat(14, 1fr);
+    box-sizing: border-box; /* Include padding in the header's height/width */
+}
+
+header .container {
+    padding: 2vh 0;
+    color: #FFFFFF;
+    display: grid;
+    /* grid-column-start: 2;
+    grid-column-end: -2; */
+    grid-column: 2 / -2;
+    /* [ ! ] Define the two columns here: */
+    grid-template-columns: repeat(12, 1fr);
+    /* Two equal-width columns - 1fr 1fr */
+    gap: 8px; /* space between */
+    /* fill the available space in the header */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.playlists {
+    /* [ ! ] This element is a grid item that occupies the first column */
+    /* But also needs to be a grid container for it's items if they are laid out with grid */
+    display: grid;
+    grid-column: 1 / 8;
+    grid-template-columns: repeat(auto-fit, minmax(14vw, 1fr));
+    /* Example: Flexible columns */
+    gap: 6px;
+    height: 100%;
+    margin: 20px 20px 0 0;
+    overflow-y: scroll;
+    box-sizing: border-box; /* Include padding */
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE и Edge */
+}
+
+.playlists::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.playlists > div {
+    background-color: #1B172F;
+    margin: 8px;
+    height: 22vh;
+    padding: 2vh 2vw 12vh 1vw;
+    border-radius: 0 0 20px 20px;
+}
+
+/* [ ! ] make the h3 span the full width within .playlists */
+.playlists h3 {
+    /* Tell this h3 (a grid item in .playlists's grid) to span all columns (from 1 to -1) */
+    grid-column: 1 / -1;
+    margin: 1rem 0 1rem 10px;
+}
+
+.recently-viewed {
+    background: #1B172F;
+    grid-column: 8 / -1;
+
+    height: 100%;
+    margin: 20px 0;
+    align-items: center;
+    text-align: center;
+    padding: 4vh 4vw 4vh 4vw;
+    border: 1px solid #48DAFF;
+    border-radius: 20px 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    box-sizing: border-box; /* Include padding */
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE и Edge */
+}
+
+.recently-viewed::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.recently-viewed > div {
+    background-color: #332C57;
+    margin: 16px 0;
+    height: 30vh;
+    width: 80%;
+    padding: 2vh 2vw 12vh 2vw;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+}
+
+/* MENU : recomendations ----------------------------- */
+
+.m-body {
+    overflow: hidden;
+    height: 100vh;
+    color: #FFFFFF;
+    background: #1B172F;
+}
+
+.m-body .container {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 0px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container-navkind {
+    grid-column: 1 / 3;
+}
+
+.video-list-container {
+    grid-column: 3 / 11;
+    display: flex;
+    height: 100vh;
+    gap: 0px; /* [ ! ] Отступ между колонками */
+}
+
+.video-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    height: 100%;
+    box-sizing: border-box;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE и Edge */
+    width: 100%; /* Чтобы занимал всю доступную ширину в video-list-container */
+}
+
+.video-column::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.video-thumbnail {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+}
+
+.video-wrapper {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-wrapper:nth-child(odd) {
+    background-color: #FF61CD;
+}
+
+.video-wrapper:nth-child(even) {
+    background-color: #FF911B;
+}
+
+.video-wrapper:nth-child(3n) {
+    background-color: #48DAFF;
+}
+
+.video-wrapper:nth-child(5n) {
+    background-color: #6EFB4E;
+}
+
+.video-title {
+    color: #1B172F;
+    padding: 6px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    grid-column: 11 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем контент по горизонтали */
+    align-content: center; /* + vertically */
+    padding: 8vw;
+    box-sizing: border-box;
+}
+
+.profile-and-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* same */
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    /* if applied on img - object-fit: contain; */
+    border-radius: 50%;
+    background-color: #1B172F;
+    margin: 10px 0 8px 0;
+    box-sizing: border-box;
+}
+
+.icons-container {
+    display: flex; /* Располагаем иконки в ряд */
+    justify-content: center; /* Центрируем иконки по горизонтали */
+    align-items: center; /* Выравниваем иконки по вертикали */
+    box-sizing: border-box;
+    width: 100%; /* Занимаем всю ширину контейнера */
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    /* if applied on img - object-fit: contain; */
+    background-color: #332C57;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    margin: 8px 4px 0 0; /* Отступы слева и справа для разделения иконок */
+    box-sizing: border-box;
+    cursor: pointer; /* Курсор при наведении */
+}
+
+.icon:first-child:hover {
+    background-color: #6EFB4E;
+}
+
+.icon:nth-child(2):hover {
+    background-color: #FF61CD;
+}
+
+.icon:nth-child(3):hover {
+    background-color: #48DAFF;
+}
+
+.search-bar {
+    font-family: 'Trebuchet MS';
+    width: 100%;
+    padding: 8px;
+    margin: 0 0 8px 0;
+    border: 5px solid #332C57;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: width 0.3s ease, margin 0.3s ease; /* Добавляем transition */
+}
+
+.search-bar:focus, .search-bar:hover {
+    width: calc(100% + 2rem); /* Увеличиваем ширину на 20px */
+    margin-left: -28px; /* Сдвигаем влево */
+    margin-right: -28px; /* Сдвигаем вправо */
+}
+
+.recent-videos {
+    width: 100%;
+    margin: 2rem 6px 0 6px;
+    padding: 4px;
+    background: #332C57;
+    border-radius: 8px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.recent-video {
+    background-color: #332C57;
+    margin: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 6px 4px 6px 4px;
+    height: fit-content;
+    border-radius: 4px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.recent-video:hover {
+    background-color: #48DAFF;
+    color: #332C57;
+}
+
+.recent-video .time-remaining {
+    font-size: 0.7em;
+    color: #FF61CD;
+    box-sizing: border-box;
+}
+
+/* VIEWPAGE : video play ------------------------------- [ ! ] add nav\side- bar */
+
+.v-body {
+    font-family: 'Trebuchet MS';
+    background-color: #1B172F;
+    color: #FFFFFF;
+    overflow: hidden;
+    height: 100vh; /* Ensure full height */
+}
+
+.v-body .additional-container {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.video-section {
+    grid-column: 1 / 11;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #2C2747; /* Left side color */
+    padding: 0 6vw 0 6vw;
+}
+
+.video-player {
+    height: 54vh;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensures video does not overflow */
+}
+
+.video-player video {
+    max-width: 100%;
+    max-height: 100%;
+    /* object-fit: cover; /* Prevent distortion, maintain aspect ratio */
+}
+
+.recommendations {
+    margin: 8px 0;
+    padding: 0 0 1rem 0;
+    box-sizing: border-box;
+}
+
+.recommendations h3{
+    margin: 0 0 8px 0;
+}
+
+.recommendations-scroll {
+    display: flex;
+    overflow-x: auto; /* Horizontal scroll */
+    overflow-y: hidden; /* Hide vertical scroll */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.recommendation-item {
+    flex: 0 0 auto; /* Don't grow, don't shrink, take up only the space needed */
+    width: 16vw;
+    margin: 0 5px 0 0;
+    box-sizing: border-box;
+}
+
+.recommendation-item img {
+    width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.recommendations-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.comments-section {
+    grid-column: 11 / -1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto; /* Vertical scroll for comments */
+    width: 100%;
+    margin: 6vh 0 6vh 4vw;
+    box-sizing: border-box;
+}
+
+.comments-section::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.comments {
+    box-sizing: border-box;
+}
+
+.comment {
+    margin: 1vh 0;
+    padding: 1vh 6vw 1vh 0;
+    border-bottom: 2px solid #332C57;
+    box-sizing: border-box;
+}
+
+.comment-author {
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.self-comment {
+    text-align: right; /* Align self-comments to the right */
+    color: #1B172F;
+    background-color: #6EFB4E;
+    border-bottom: 0;
+    border-radius: 5px;
+}
+
+/* HOMEPAGE : footer, additional info */
+
+footer {
+    height: 16rem;
+    background: #1B172F;
+}

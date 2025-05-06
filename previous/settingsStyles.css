@@ -1,0 +1,93 @@
+/* Вспомогательные классы для позиционирования */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+.col-span-13 { grid-column: span 13; }
+.col-span-14 { grid-column: span 14; }
+
+/* Стили для страницы настроек */
+
+body {
+    font-family: 'Trebuchet MS';
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #1B172F;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 0;
+    padding: 0px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.settings-content {
+    display: grid;
+    height: 100%;
+    background: #332C57;
+}
+
+.profile-section {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px; /* Сдвигаем картинку выше */
+    box-sizing: border-box;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #332C57;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.right-side {
+    align-content: center;
+    padding-left: 88px;
+}
+
+.settings-sections {
+    width: 180px;
+    padding: 4px;
+    background: #6EFB4E;
+    border-radius: 8px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.setting-item {
+    background-color: #332C57;
+    text-decoration: none; /* bc of href="#" */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 12px 8px 12px 8px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.setting-item:hover {
+    background-color: #FF911B;
+    color: #1B172F;
+}
