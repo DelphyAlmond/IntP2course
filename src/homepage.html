@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid"> <!-- Use container-fluid for full width nav -->
+            <a class="navbar-brand" href="index.html">
+                <img src="../covers&logo/logo.png" alt="logo" height="48">
+                <img src="../covers&logo/service.png" alt="service name" height="48">
+            </a>
+            <!-- Add a toggler for responsive collapsing on small screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"> <!-- ms-auto pushes items to the right -->
+                    <li class="nav-item">
+                        <!-- Bootstrap form for search input -->
+                        <form class="d-flex me-2"> <!-- d-flex for layout, me-2 for margin-right -->
+                            <input class="form-control me-2" type="search" placeholder="Search here..."
+                                aria-label="Search">
+                            <!-- Optional: add a search button -->
+                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Menu</a>
+                        <!-- Use .nav-link for styling -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#info">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <!-- Use Bootstrap's .container or .container-fluid for centering/padding
+             This container will now be the Flex/Grid container for the two columns -->
+        <div class="container">
+            <!-- Use Bootstrap's .row to create a horizontal row -->
+            <!-- Use Bootstrap's g-* classes for gap between columns (e.g., g-2 for small gap) -->
+            <div class="row g-2">
+                <!-- Use Bootstrap's .col-* classes to define column spans -->
+                <!-- col-12 makes it full width on small screens, col-md-7 makes it span 7/12 on medium and up -->
+                <div class="col-12 col-md-7 playlists">
+                    <h3>Your playlists:</h3>
+                    <!-- The layout *inside* playlists (.playlists > div) can still use your custom grid or Flexbox,
+                          or you could use Bootstrap's row-cols or Flexbox utilities here too -->
+                    <!-- Example using Bootstrap's row-cols for the inner grid -->
+                    <div class="row row-cols-auto g-1">
+                        <div>Playlist</div>
+                        <div>Folder</div>
+                        <div>Music</div>
+                        <div>Podcasts</div>
+                        <div>NTK</div>
+                        <div>Sonya's streams</div>
+                        <div>TableGames</div>
+                        <div>worldIT</div>
+                        <div>Item</div>
+                        <div>Random stream</div>
+                        <div>Smth more</div>
+                    </div>
+                </div>
+            </div>
+            <!-- col-12 makes it full width on small screens, col-md-5 makes it span 5/12 on medium and up -->
+            <div class="col-12 col-md-5 recently-viewed">
+                <h3>Recently viewed:</h3>
+                <!-- The layout *inside* recently-viewed (.recently-viewed > div) can still use your custom Flexbox -->
+                <div class="d-flex flex-column"> <!-- Use Bootstrap Flexbox utilities if not already Flex -->
+                    <div>Amazon Unpacking! live</div>
+                    <div>Nobody asked: Anxiety</div>
+                    <div>Talks-in-door</div>
+                    <div>Book design, power of cover</div>
+                    <div>May4</div>
+                    <div>I'm f*king dying</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+        <div class="container">
+            <!-- Text decoration + (underlining) -->
+            <div class="agreements">
+                <h4 style="color: #FF61CD;">Agreements</h4>
+                <ul>
+                    <li><a style="color: #ffffff;">The policy of confidentiality</a></li>
+                    <li><a style="color: #ffffff;">Child Safety</a></li>
+                    <li><a style="color: #ffffff;">Use of cookies</a></li>
+                    <li><a style="color: #ffffff;">Copyright Policy</a></li>
+                </ul>
+            </div>
+            <div class="support">
+                <h4 style="color: #48DAFF">Support</h4>
+                <ul>
+                    <li><a style="color: #ffffff;">About us</a></li>
+                    <li><a style="color: #ffffff;">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h4 style="color: #6EFB4E;">Our Social Media</h4>
+                <ul>
+                    <a href="#" class="name"><img src="../covers&logo/telegram.png"></a>
+                    <a href="#" class="name"><img src="../covers&logo/vk.png"></a>
+                    <a href="#" class="name"><img src="../covers&logo/instagram.png"></a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>

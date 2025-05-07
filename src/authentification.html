@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth-Registration</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body class="a-body">
+    <div class="auth-page">
+        <div class="col-span-14">
+            <div class="auth-container">
+                <div class="logo-container">
+                    <img src="../covers&logo/logo.png" alt="Logo" class="logo">
+                </div>
+                <div class="section" id="login">
+                    <h2></h2>
+                    <p>Glad to see you again!</p>
+                    <input type="text" placeholder="Login">
+                    <input type="password" placeholder="Password">
+                    <button href="homepage.html">Авторизоваться</button>
+                </div>
+                <div class="section" id="register">
+                    <h2></h2>
+                    <p>Create an account</p>
+                    <input type="text" placeholder="Login">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder=">repeat">
+                    <button href="homepage.html">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginSection = document.getElementById('login');
+        const registerSection = document.getElementById('register');
+        const logoContainer = document.querySelector('.logo-container'); // Get the logo element
+
+        loginSection.addEventListener('mouseenter', () => {
+            loginSection.classList.remove('inactive');
+            loginSection.querySelector('h2').textContent = 'С возвращением!';
+            registerSection.classList.add('inactive');
+            registerSection.querySelector('h2').textContent = '';
+            logoContainer.style.left = '66%'; // Move logo to the right side
+        });
+
+        registerSection.addEventListener('mouseenter', () => {
+            registerSection.classList.remove('inactive');
+            registerSection.querySelector('h2').textContent = 'Добро пожаловать!';
+            loginSection.classList.add('inactive');
+            loginSection.querySelector('h2').textContent = '';
+            logoContainer.style.left = '34%'; // Move logo to the left side
+        });
+    </script>
+</body>
+
+</html>
