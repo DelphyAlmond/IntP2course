@@ -678,3 +678,426 @@ footer {
     height: 16rem;
     background: #1B172F;
 }
+
+/* ADJUSTMENTS */
+/* >>> Responsive Styles for Mobile (max-width: 767px) */
+
+@media (max-width: 767px) {
+
+    /* --- Universal Adjustments --- */
+    /* Reduce the general container width on smaller screens */
+    .container {
+        width: var(--Wmobile);
+    }
+
+    /* Adjust body height and overflow for mobile */
+    body {
+         height: auto;
+         overflow-y: auto;
+         padding-bottom: 60px; /* prevent footer content from being hidden if sticky */
+    }
+
+    /* Hide custom scrollbars on mobile as native ones are often better */
+    /* This section might already be covered by individual rules, but can add here too */
+     ::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    * {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+    }
+
+    /* --- HOMEPAGE Adjustments --- */
+
+    /* Navigation Bar (nav) */
+    nav {
+        height: auto; /* Allow nav height to adapt */
+        flex-direction: column; /* Stack nav items vertically */
+        padding: 10px 0;
+    }
+
+    nav .container {
+         flex-direction: column; /* Stack items vertically inside nav container */
+         align-items: flex-start; /* Align items to the start (left) */
+         width: 95%;
+         height: auto;
+    }
+     nav .container > a { /* Target logo and name links */
+         padding: 5px 0; /* Add vertical padding to links */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        height: auto; /* Allow ul height to adapt */
+        width: 100%; /* Make ul take full width */
+        margin-top: 10px; /* Add space below logo/name */
+        align-items: stretch; /* Stretch list items horizontally */
+    }
+
+    nav ul li {
+        height: auto; /* Allow list item height to adapt */
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+        width: 100%; /* Make list item take full width */
+    }
+
+    nav ul li .search-input {
+        min-width: auto; /* Remove minimum width constraint */
+        width: 100%; /* Make it take full width of its container (li) */
+        padding: 8px 10px; /* Adjust padding */
+        height: auto; /* Allow height to adapt */
+        flex-grow: 0; /* Remove flex grow */
+    }
+
+    nav ul li a {
+        height: auto; /* Allow link height to adapt */
+        padding: 8px 0; /* Adjust padding */
+        width: 100%; /* Make links take full width */
+         text-align: center; /* Center link text */
+    }
+
+     .logo img {
+        width: 40px; /* Example smaller size */
+        height: 40px;
+        padding: 0; /* Remove extra padding */
+    }
+     .name img {
+         width: auto; /* Maintain aspect ratio */
+         height: 40px;
+         padding: 0 0 0 5px; /* Adjust padding */
+     }
+
+
+    /* Header (playlists + recently viewed) */
+    header {
+        height: auto; /* Allow header height to adapt to content */
+        display: block; /* Change from grid to block layout */
+        padding: 0; /* Remove header padding, apply to inner container instead */
+        /* Remove grid-template-columns */
+        /* Remove box-sizing if not needed after removing grid */
+    }
+
+    header .container {
+        /* This was the inner grid container - change its layout */
+        display: block; /* Change to block layout to stack children naturally */
+        /* Remove grid-column positioning */
+        /* Remove grid-template-columns */
+        /* Remove gap */
+        padding: 10px; /* Add mobile padding */
+        height: auto; /* Allow height to adapt */
+        width: 100%; /* Ensure it takes full width */
+        overflow: visible; /* Allow content to overflow if needed */
+    }
+
+    .playlists, .recently-viewed {
+        /* These were grid items in header .container - now they will stack as blocks */
+        /* Remove grid-column positioning */
+        /* grid-column: auto !important; */ /* Reset grid-column if block display isn't enough */
+
+        display: block; /* Change to block layout */
+        height: 40vh; /* Set a fixed height for scrollable areas on mobile */
+        width: 100%; /* Ensure they take full width */
+        margin: 10px 0; /* Adjust margin for vertical stacking */
+        padding: 10px; /* Adjust padding */
+    }
+
+     /* Ensure .playlists remains a grid container for its inner items */
+     .playlists {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for smaller screens */
+         gap: 8px; /* Adjust gap */
+     }
+
+
+    .playlists h3, .recently-viewed h3 {
+         /* Ensure headings still span full width within their new containers (if parent is grid) or take full width (if parent is block/flex) */
+          grid-column: 1 / -1; /* Keep if .playlists remains a grid container */
+          margin: 0 0 10px 0; /* Adjust margin below heading */
+          text-align: center; /* Center headings on mobile */
+    }
+
+
+    .playlists > div, .recently-viewed > div {
+        /* Adjust individual item padding/margin/height if needed */
+        height: auto; /* Allow height to adapt to content */
+        margin: 8px 0; /* Adjust margin for vertical stacking */
+        padding: 10px; /* Adjust padding */
+        width: auto; /* Allow width to adapt if not using 100% */
+    }
+
+     .recently-viewed > div {
+         width: 100%; /* Ensure they take full width within recently-viewed */
+     }
+
+
+    /* Footer (footer) */
+    footer {
+         height: auto; /* Allow footer height to adapt to content */
+         padding: 20px 0;
+    }
+
+    footer .container {
+        /* Footer layout change - from columns to stacked */
+        display: block; /* Change to block layout */
+        padding: 10px;
+    }
+
+    footer .container > div { /* Target agreements, support, social-media divs */
+         margin: 10px 0; /* Add margin between stacked sections */
+         text-align: center; /* Center content */
+    }
+
+    footer .container > div ul {
+         padding: 0; /* Remove padding from ul */
+         display: block; /* Stack list items vertically */
+    }
+
+    footer .container > div ul li {
+         margin: 5px 0; /* Add margin between list items */
+    }
+     footer .container > div ul a { /* Target social media links */
+         display: inline-block; /* Treat links as inline blocks */
+         margin: 0 5px; /* Add horizontal margin between icons */
+    }
+    footer .container > div ul a img {
+        /* Adjust social media icon size */
+        width: 30px;
+        height: 30px;
+        padding: 0; /* Remove padding */
+    }
+
+    /* --- MENU Page Adjustments (.m-body) --- */
+
+    /* Keep these as they handle the vertical stacking of the main sections */
+    .m-body {
+        overflow: auto;
+        height: auto;
+    }
+
+   .m-body .container {
+       display: block;
+       height: auto;
+       padding: 10px;
+       width: 100%;
+    }
+
+    .container-navkind, .sidebar {
+       width: 100%;
+       height: auto;
+       margin-bottom: 10px;
+       padding: 10px;
+    }
+    /* Keep the video-list-container as block to stack the video-columns */
+    .video-list-container {
+        display: block; /* Change to block layout for inner columns */
+        gap: 0;
+        height: auto;
+    }
+
+   /* FIX/CHANGE THIS : Make video-column a horizontal flex container */
+   .video-column {
+       display: flex;
+       flex-direction: row; /* Arrange children (video-wrappers) horizontally */
+       align-items: flex-start;
+
+       overflow-x: auto; /* [ ! ] Add horizontal scroll */
+       overflow-y: hidden;
+
+       height: 10vh; /* Keep a fixed height so horizontal scroll works */
+       box-sizing: border-box;
+       gap: 8px;
+
+       scrollbar-width: none; /* Firefox */
+       -ms-overflow-style: none;  /* IE and Edge */
+
+        width: auto; /* Let width be determined by content/flex container */
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+
+   /* FIX/CHANGE : [ ! ] individual video wrappers as flex items */
+   .video-wrapper {
+       /* display: flex; Keep this for the inner image/title stack */
+       /* flex-direction: column; Keep this for the inner image/title stack */
+
+       flex: 0 0 auto; /* Important: Prevent shrinking, allow size based on content/width */
+       /* Set a specific width for each video item in the horizontal row */
+       width: 150px; /* Example: Fixed width for mobile items */
+       /* Or use vw if you want it relative to viewport width: */
+       /* width: 40vw; */
+
+        margin-bottom: 0; /* Remove margin-bottom */
+        border-radius: 6px 6px 0 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row; /* Stack thumbnail and title */
+    }
+
+    .video-thumbnail {
+         border-radius: 6px;
+    }
+     .video-title {
+         font-size: 0.9em;
+    }
+
+    .sidebar {
+        /* Specific sidebar adjustments */
+        align-items: stretch; /* Stretch content horizontally */
+        padding: 10px; /* Adjust padding */
+    }
+        .profile-and-icons {
+            flex-direction: column; /* Stack profile and icons vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .profile-picture {
+            width: 40px;
+            height: 40px;
+            margin: 0 0 5px 0; /* Add margin below picture */
+        }
+    .icons-container {
+        justify-content: center; /* Center icons */
+        width: auto; /* Allow width to adapt */
+        align-items: center;
+    }
+        .icon {
+            width: 25px;
+            height: 25px;
+            margin: 0 4px; /* Adjust icon spacing */
+        }
+        .recent-videos {
+            margin: 10px 0 0 0; /* Adjust margin */
+            padding: 5px; /* Adjust padding */
+        }
+        .search-bar {
+            width: 100%; /* Ensure full width */
+            margin: 10px 0; /* Adjust margin */
+            padding: 6px 8px; /* Adjust padding */
+            border-width: 1px; /* Reduce border width */
+        }
+    /* Remove search bar hover/focus effect for mobile if it causes layout issues */
+        .search-bar:focus, .search-bar:hover {
+        width: 100%; /* Prevent width change */
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .recent-video {
+        margin: 6px 0; /* Adjust margin */
+        padding: 4px; /* Adjust padding */
+        font-size: 0.9em; /* Adjust font size */
+    }
+        .recent-video .time-remaining {
+            font-size: 0.8em; /* Adjust font size */
+        }
+
+
+    /* --- VIEWPAGE Adjustments (.v-body) --- */
+
+    .v-body {
+            overflow: auto; /* Allow scrolling on the body if needed */
+            height: auto; /* Allow height to adapt */
+    }
+
+    .v-body .additional-container {
+        /* Main view page layout change - from side-by-side video/comments to stacked */
+        display: block; /* Change to block layout */
+        /* Remove grid-template-columns */
+        height: auto; /* Allow height to adapt */
+        padding: 10px; /* Add mobile padding */
+        width: 100%; /* Ensure full width */
+    }
+
+    .video-section {
+        /* Was left column - now takes full width */
+        /* Remove grid-column */
+        /* grid-column: auto !important; */
+        width: 100%; /* Ensure full width */
+        height: auto; /* Allow height to adapt */
+        padding: 10px; /* Adjust padding */
+        margin-bottom: 10px; /* Add space below video section */
+            background-color: transparent; /* Remove background, let body handle it */
+    }
+    .video-section h3 {
+        text-align: center; /* Center heading */
+        margin-bottom: 10px; /* Adjust margin */
+    }
+
+    .video-player {
+        /* Adjust video player height */
+        height: auto; /* Allow height to adapt to video aspect ratio */
+        margin: 0 0 10px 0; /* Adjust margin */
+        padding: 0; /* Remove padding if it was used for centering */
+        /* Centering is handled by parent flex/grid or text-align */
+    }
+
+    .video-player video {
+            /* video already uses max-width: 100%, which is good */
+            max-height: 50vh; /* Optionally limit max height on mobile */
+    }
+
+    .recommendations {
+        margin: 10px 0; /* Adjust margin */
+        padding: 0; /* Adjust padding */
+    }
+
+    .recommendations h3 {
+            margin: 0 0 10px 0; /* Adjust margin below heading */
+            text-align: center; /* Center heading */
+    }
+
+    .recommendations-scroll {
+        /* Horizontal scroll might be okay, but adjust item width if needed */
+            width: auto;
+            max-width: 100%;
+            padding-bottom: 10px; /* Add padding for scrollbar space */
+    }
+
+    .recommendation-item {
+        /* Adjust width of individual recommendation items */
+        flex: 0 0 40vw; /* Example: take 40% of viewport width */
+        min-width: 120px; /* Ensure minimum size */
+        margin: 0 10px 0 0; /* Adjust margin */
+    }
+    .recommendation-item img {
+        border-radius: 5px; /* Keep border radius */
+    }
+
+    .comments-section {
+        /* Was right column - now takes full width below video section */
+        /* Remove grid-column */
+        /* grid-column: auto !important; */
+        width: 100%; /* Ensure full width */
+        height: 40vh; /* Set a fixed height for scrollability */
+        overflow-y: auto; /* Keep vertical scroll */
+        margin: 10px 0; /* Add margin */
+            padding: 10px; /* Add mobile padding */
+            background-color: #2C2747; /* Add background */
+            border-radius: 5px; /* Add some border radius */
+    }
+    .comments-section h3 {
+        text-align: center; /* Center heading */
+        margin: 0 0 10px 0; /* Adjust margin */
+    }
+
+
+    .comment {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .comment-author {
+        margin-bottom: 3px; /* Add space below author */
+    }
+
+
+    .self-comment {
+            padding: 5px 10px; /* Add horizontal padding */
+            margin-left: 10%; /* Keep some right alignment if desired, less pronounced */
+            text-align: left; /* Align text left within the comment box */
+            background-color: #6EFB4E;
+            color: #1B172F;
+            border-radius: 5px;
+            border-bottom: none; /* Ensure no border */
+    }
+}
